@@ -14,38 +14,38 @@ Ce dépôt est **l'original** d'Awaseru : le code seul, sans aucune pièce. Chaq
 2. Crée un dossier vide sur ton ordinateur (par exemple *Documents/Awaseru*) et ouvre-le dans ton assistant.
 3. Copie le message ci-dessous, colle-le dans ton assistant, envoie-le, et laisse-toi guider.
 
-Ton assistant te demandera d'abord comment tu veux faire l'installation : **par l'IA** (il fait tout lui-même, tu n'as qu'à te connecter une fois à GitHub en recopiant un code) ou **toi-même** (il te guide, et tu fais les manipulations sur le site de GitHub).
+Le message est en anglais, la langue que toutes les IA comprennent le mieux. La première chose que fera ton assistant, c'est te demander **dans quelle langue tu veux parler** : réponds « français », et la suite se fera en français. Il te demandera ensuite comment tu veux faire l'installation : **par l'IA** (il fait tout lui-même, tu n'as qu'à te connecter une fois à GitHub en recopiant un code) ou **toi-même** (il te guide, et tu fais les manipulations sur le site de GitHub).
 
 ```text
-Aide-moi à installer Awaseru pour ma troupe de théâtre et à y ajouter nos pièces. Je ne m'y connais pas en informatique : parle-moi avec des mots simples, une étape à la fois, et attends ma réponse avant de passer à la suivante. Demande mon accord avant d'installer un programme. Si tu ne peux pas lancer de commandes sur cet ordinateur, dis-le-moi tout de suite : il me faut Claude Code ou Codex.
+Help me set up Awaseru for my theatre troupe and add our plays to it. First, ask me which language I want us to use, then speak only that language with me for the whole conversation. I am not a computer person: use simple words, one step at a time, and wait for my answer before moving on. Ask for my permission before installing any program. If you cannot run commands on this computer, tell me right away: I need Claude Code or Codex.
 
-Awaseru est une application web pour apprendre ses répliques de théâtre en japonais. L'original est https://github.com/awaseru-app/awaseru : chaque troupe en fait sa propre copie (un fork) sur son compte GitHub, y ajoute ses pièces et la publie gratuitement avec GitHub Pages.
+Awaseru is a web app for learning one's lines in a Japanese play. The original is https://github.com/awaseru-app/awaseru: each troupe makes its own copy (a fork) on its GitHub account, adds its plays, and publishes it for free with GitHub Pages.
 
-A. Si ma copie est déjà sur cet ordinateur (un dossier qui contient AGENTS.md et pieces/), travaille dedans, récupère sa dernière version avec git pull, et passe directement à D.
+A. If my copy is already on this computer (a folder containing AGENTS.md and pieces/), work in it, get its latest version with git pull, and go straight to D.
 
-B. Sinon, demande-moi comment je veux faire l'installation :
-   - « par l'IA » : tu fais tout toi-même, je n'aurai qu'à me connecter une fois à GitHub ;
-   - « moi-même » : tu me guides, et je fais les manipulations sur le site de GitHub.
-   Dans les deux cas, il me faut un compte GitHub. Si je n'en ai pas, envoie-moi le créer sur https://github.com/signup : ça, je dois le faire moi-même.
+B. Otherwise, ask me how I want to set it up:
+   - "by the AI": you do everything yourself, I will only have to sign in to GitHub once;
+   - "myself": you guide me, and I do the steps on the GitHub website.
+   Either way, I need a GitHub account. If I do not have one, send me to https://github.com/signup to create it: I must do that myself.
 
-C. L'installation. Mon app sera ensuite à l'adresse https://MON-COMPTE.github.io/awaseru/ (MON-COMPTE en minuscules). Ma copie se range dans un dossier à elle : si tu es ouvert dans un dossier qui contient déjà autre chose (un autre projet), ne la mets pas dedans, demande-moi où la ranger (par exemple un dossier Awaseru dans mes Documents).
-   Par l'IA :
-   1. Installe Git et GitHub CLI s'ils manquent (Windows : winget install --id Git.Git, puis winget install --id GitHub.cli --source winget ; Mac : brew install gh ; si la commande brew n'existe pas, c'est à moi d'installer Homebrew dans l'application Terminal, car il demande mon mot de passe : guide-moi d'après https://brew.sh).
-   2. Connecte-moi à GitHub : lance gh auth login --hostname github.com --git-protocol https --web --skip-ssh-key en arrière-plan, pour lire ce qu'il affiche pendant qu'il attend. Il donne un code et l'adresse https://github.com/login/device : transmets-les-moi, je saisis le code sur cette page, et la commande se termine seule. Puis lance gh auth setup-git.
-   3. Crée ma copie et récupère-la dans ce dossier : gh repo fork awaseru-app/awaseru --fork-name awaseru --default-branch-only --clone
-   4. Mets-la en ligne : gh api -X POST repos/MON-COMPTE/awaseru/pages -f "source[branch]=main" -f "source[path]=/". Vérifie ensuite avec gh api repos/MON-COMPTE/awaseru/pages/builds/latest ; si rien ne se publie, active les Actions de ma copie : gh api -X PUT repos/MON-COMPTE/awaseru/actions/permissions -F enabled=true
-   Moi-même :
-   1. Guide-moi pour créer ma copie : sur https://github.com/awaseru-app/awaseru, bouton « Fork », mon compte comme « Owner », nom « awaseru », puis « Create fork ».
-   2. Puis pour la mettre en ligne : dans ma copie, Settings, Pages, « Deploy from a branch », branche main, dossier / (root), Save. Si rien n'est en ligne au bout de dix minutes : onglet Actions de ma copie, autoriser les workflows.
-   3. Installe Git s'il manque (Windows : winget install --id Git.Git), puis clone ma copie dans ce dossier (https://github.com/MON-COMPTE/awaseru).
+C. Setup. My app will then be at https://MY-ACCOUNT.github.io/awaseru/ (MY-ACCOUNT in lowercase). My copy goes in a folder of its own: if you are open in a folder that already contains something else (another project), do not put it there; ask me where to put it (for example an Awaseru folder in my Documents).
+   By the AI:
+   1. Install Git and GitHub CLI if they are missing (Windows: winget install --id Git.Git, then winget install --id GitHub.cli --source winget; Mac: brew install gh; if the brew command does not exist, I must install Homebrew myself in the Terminal app, because it asks for my password: guide me using https://brew.sh).
+   2. Sign me in to GitHub: run gh auth login --hostname github.com --git-protocol https --web --skip-ssh-key in the background, so you can read what it prints while it waits. It shows a code and the address https://github.com/login/device: give them to me, I enter the code on that page, and the command finishes by itself. Then run gh auth setup-git.
+   3. Create my copy and download it into this folder: gh repo fork awaseru-app/awaseru --fork-name awaseru --default-branch-only --clone
+   4. Put it online: gh api -X POST repos/MY-ACCOUNT/awaseru/pages -f "source[branch]=main" -f "source[path]=/". Then check with gh api repos/MY-ACCOUNT/awaseru/pages/builds/latest; if nothing gets published, enable Actions on my copy: gh api -X PUT repos/MY-ACCOUNT/awaseru/actions/permissions -F enabled=true
+   Myself:
+   1. Guide me to create my copy: on https://github.com/awaseru-app/awaseru, the "Fork" button, my account as "Owner", name "awaseru", then "Create fork".
+   2. Then to put it online: in my copy, Settings, Pages, "Deploy from a branch", branch main, folder / (root), Save. If nothing is online after ten minutes: the Actions tab of my copy, allow the workflows.
+   3. Install Git if it is missing (Windows: winget install --id Git.Git), then clone my copy into this folder (https://github.com/MY-ACCOUNT/awaseru).
 
-D. Lis AGENTS.md dans ma copie et respecte-le : en particulier, ne modifie rien en dehors du dossier pieces/, et si git demande un nom et une adresse e-mail, demande-les-moi.
+D. Read AGENTS.md in my copy and follow it: in particular, change nothing outside the pieces/ folder, and if git asks for a name and an email address, ask me for them.
 
-E. Demande-moi le PDF du script, puis ajoute la pièce en suivant pas à pas .agents/skills/nouvelle-piece/SKILL.md (il dit aussi quels outils installer).
+E. Ask me for the PDF of the script, then add the play by following .agents/skills/nouvelle-piece/SKILL.md step by step (it also says which tools to install).
 
-F. Quand tout est vérifié, envoie le travail sur GitHub (commit puis push). Si GitHub me demande de me connecter, guide-moi.
+F. When everything is checked, send the work to GitHub (commit, then push). If GitHub asks me to sign in, guide me.
 
-G. Pour finir, explique-moi comment installer l'app sur les téléphones de la troupe, et comment récupérer plus tard les améliorations d'Awaseru (README.md de ma copie, parties « Installer sur Android » et « Récupérer les améliorations d'Awaseru »). Dis-moi aussi que tu pourras le faire pour moi, comme l'explique AGENTS.md.
+G. Finally, explain how to install the app on the troupe's phones, and how to get Awaseru's improvements later (README.md of my copy, sections "Install on Android" and "Get Awaseru's improvements"). Also tell me that you can do it for me, as AGENTS.md explains.
 ```
 
 Pour ajouter une autre pièce plus tard, ou récupérer les améliorations d'Awaseru, ouvre le même dossier dans ton assistant et recolle le même message.
